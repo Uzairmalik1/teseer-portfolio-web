@@ -17,7 +17,7 @@ function ProjectCard({ project }) {
           <div className="h-2 w-2 lg:h-3 lg:w-3 rounded-full bg-green-200"></div>
         </div>
         <p className="text-center ml-3 text-[#16f2b3] text-base lg:text-xl">
-          {project.title}
+          {project?.title}
         </p>
       </div>
       <div className="overflow-hidden border-t-[2px] border-indigo-900 px-4 lg:px-8 py-4 lg:py-8">
@@ -31,7 +31,7 @@ function ProjectCard({ project }) {
           <div>
             <span className="ml-4 lg:ml-8 mr-2 text-white">name:</span>
             <span className="text-gray-400">{`'`}</span>
-            <span className="text-amber-300">{project.name}</span>
+            <span className="text-amber-300">{project?.name}</span>
             <span className="text-gray-400">{`',`}</span>
           </div>
 
@@ -39,11 +39,11 @@ function ProjectCard({ project }) {
             <span className=" text-white">tools:</span>
             <span className="text-gray-400">{` ['`}</span>
             {
-              project.tools.map((tag, i) => (
+              project?.tools?.map((tag, i) => (
                 <React.Fragment key={i}>
                   <span className="text-amber-300">{tag}</span>
                   {
-                    project.tools?.length - 1 !== i &&
+                    project?.tools?.length - 1 !== i &&
                     <span className="text-gray-400">{`', '`}</span>
                   }
                 </React.Fragment>
@@ -53,18 +53,18 @@ function ProjectCard({ project }) {
           </div>
           <div>
             <span className="ml-4 lg:ml-8 mr-2 text-white">myRole:</span>
-            <span className="text-orange-400">{project.role}</span>
+            <span className="text-orange-400">{project?.role}</span>
             <span className="text-gray-400">,</span>
           </div>
           <div className="ml-4 lg:ml-8 mr-2">
             <span className="text-white">Description:</span>
-            <span className="text-cyan-400">{' ' + project.description}</span>
+            <span className="text-cyan-400">{' ' + project?.description}</span>
             <span className="text-gray-400">,</span>
           </div>
           {project.demo ? (
             <div>
             <span className="ml-4 lg:ml-8 mr-2 text-white">Demo:</span>
-            <span className="text-orange-400">{project.demo}</span>
+            <span className="text-orange-400">{project?.demo}</span>
             <span className="text-gray-400">,</span>
           </div>
           ) :  "" }

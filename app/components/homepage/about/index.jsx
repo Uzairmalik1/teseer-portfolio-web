@@ -19,12 +19,12 @@ function AboutSection() {
             Who I am?
           </p>
           <p className="text-gray-200 text-sm lg:text-lg">
-            {personalData.description}
+            {personalData?.description}
           </p>
         </div>
         <div className="flex justify-center order-1 lg:order-2">
           <Image
-            src={personalData.profile}
+            src={personalData?.profile}
             width={280}
             height={280}
             alt="Abu Said"
