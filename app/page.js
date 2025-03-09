@@ -9,6 +9,11 @@ import Skills from "./components/homepage/skills";
 import { client } from "@/sanity/lib/client";
 import { BLOG_QUERIES } from "@/sanity/lib/queries";
 
+// Dynamically import HeroSection with SSR disabled
+const HeroSection = dynamic(() => import("./components/homepage/hero-section"), {
+  ssr: false,
+});
+
 export default async function Home() {
   const blogs = await client.fetch(BLOG_QUERIES);
 
