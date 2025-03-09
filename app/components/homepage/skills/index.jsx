@@ -66,15 +66,15 @@ function Skills() {
                 <div className="flex flex-col items-center justify-center gap-3 p-6">
                   <div className="h-8 sm:h-10">
                     <Image
-                      src={skill.image.asset.url}
-                      alt={skill.alt}
+                      src={skill?.image?.asset?.url}
+                      alt={skill?.alt}
                       width={40}
                       height={40}
                       className="h-full w-auto rounded-lg"
                     />
                   </div>
                   <p className="text-white text-sm sm:text-lg">
-                    {skill.name}
+                    {skill?.name}
                   </p>
                 </div>
               </div>

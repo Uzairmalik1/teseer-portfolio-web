@@ -20,7 +20,7 @@ function HeroSection() {
     const fetchSkills = async () => {
       try {
         const skillsData = await client.fetch(SKILLS_QUERIES);
-        const skillNames = skillsData.map((skill) => skill.name);
+        const skillNames = skillsData.map((skill) => skill?.name);
         setSkills(skillNames);
       } catch (error) {
         console.error("Error fetching skills:", error);
@@ -45,43 +45,43 @@ function HeroSection() {
           <h1 className="text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
             Hello, <br />
             This is {' '}
-            <span className=" text-pink-500">{personalData.name}</span>
+            <span className=" text-pink-500">{personalData?.name}</span>
             {` , I'm a Professional `}
-            <span className=" text-[#16f2b3]">{personalData.designation}</span>
+            <span className=" text-[#16f2b3]">{personalData?.designation}</span>
             .
           </h1>
 
           <div className="my-12 flex items-center gap-5">
             <Link
-              href={personalData.github}
+              href={personalData?.github}
               target='_blank'
               className="transition-all text-pink-500 hover:scale-125 duration-300"
             >
               <BsGithub size={30} />
             </Link>
             <Link
-              href={personalData.linkedIn}
+              href={personalData?.linkedIn}
               target='_blank'
               className="transition-all text-pink-500 hover:scale-125 duration-300"
             >
               <BsLinkedin size={30} />
             </Link>
             <Link
-              href={personalData.facebook}
+              href={personalData?.facebook}
               target='_blank'
               className="transition-all text-pink-500 hover:scale-125 duration-300"
             >
               <FaFacebook size={30} />
             </Link>
             <Link
-              href={personalData.leetcode}
+              href={personalData?.leetcode}
               target='_blank'
               className="transition-all text-pink-500 hover:scale-125 duration-300"
             >
               <SiLeetcode size={30} />
             </Link>
             <Link
-              href={personalData.twitter}
+              href={personalData?.twitter}
               target='_blank'
               className="transition-all text-pink-500 hover:scale-125 duration-300"
             >
@@ -128,7 +128,7 @@ function HeroSection() {
               <div>
                 <span className="ml-4 lg:ml-8 mr-2 text-white">name:</span>
                 <span className="text-gray-400">{`'`}</span>
-                <span className="text-amber-300">{personalData.name}</span>
+                <span className="text-amber-300">{personalData?.name}</span>
                 <span className="text-gray-400">{`',`}</span>
               </div>
               <div className="ml-4 lg:ml-8 mr-2">
