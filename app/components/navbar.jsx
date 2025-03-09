@@ -1,4 +1,3 @@
-// @flow strict
 import Link from "next/link";
 
 
@@ -10,7 +9,7 @@ function Navbar() {
           <Link
             href="/"
             className=" text-[#16f2b3] text-3xl font-bold">
-            ABU SAID
+            Taseer Mehboob
           </Link>
         </div>
 
