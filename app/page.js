@@ -1,5 +1,3 @@
-"use client";
-import { useEffect, useState } from "react";
 import AboutSection from "./components/homepage/about";
 import Blog from "./components/homepage/blog";
 import ContactSection from "./components/homepage/contact";
@@ -11,20 +9,11 @@ import Skills from "./components/homepage/skills";
 import { client } from "@/sanity/lib/client";
 import { BLOG_QUERIES } from "@/sanity/lib/queries";
 
-export default function Home() {
-  // const blogs = await client.fetch(BLOG_QUERIES);
-  const [blogs, setBlogs] = useState([]);
-
-  useEffect(() => {
-    async function fetchBlogs() {
-      const data = await client.fetch(BLOG_QUERIES);
-      setBlogs(data);
-    }
-    fetchBlogs();
-  }, []);
+export default async function Home() {
+  const blogs = await client.fetch(BLOG_QUERIES);
 
   return (
-    <div suppressHydrationWarning >
+    <div >
       <HeroSection />
       <AboutSection />
       <Experience />
