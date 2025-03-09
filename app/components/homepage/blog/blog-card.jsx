@@ -1,9 +1,24 @@
+"use client";
+import { useEffect, useState } from "react"; // Import useEffect and useState
 import { timeConverter } from "@/utils/time-converter";
 import Image from "next/image";
 import Link from "next/link";
 
 function BlogCard({ blog }) {
   const blogSlug = blog?.slug?.current || "";
+  const [bodyText, setBodyText] = useState(""); // State to store processed body text
+
+  // Process blog.body on the client side
+  useEffect(() => {
+    if (blog?.body) {
+      const text = blog.body
+        ?.map((block) =>
+          block?.children?.map((child) => child?.text).join(" ")
+        )
+        .join(" ");
+      setBodyText(text);
+    }
+  }, [blog?.body]);
 
   return (
     <div className="border border-[#1d293a] hover:border-[#464c6a] transition-all duration-500 bg-[#1b203e] rounded-lg relative group">
@@ -40,11 +55,7 @@ function BlogCard({ blog }) {
           </p>
         </Link>
         <p className="text-sm lg:text-base text-[#d3d8e8] pb-3 lg:pb-6 line-clamp-3">
-          {blog?.body
-            ?.map((block) =>
-              block?.children?.map((child) => child?.text).join(" ")
-            )
-            .join(" ")}
+          {bodyText} {/* Use the processed body text */}
         </p>
       </div>
     </div>
