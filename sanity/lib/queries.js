@@ -6,7 +6,7 @@ export const PROJECT_QUERIES = `*[_type == "project"] | order(_createdAt desc){
   }`;
 
   
-export const BLOG_QUERIES = `*[_type == "post"]{
+export const BLOG_QUERIES = `*[_type == "post"] | order(_createdAt desc){
     title,
     slug,
     mainImage{
