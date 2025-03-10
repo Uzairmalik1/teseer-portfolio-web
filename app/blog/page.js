@@ -18,7 +18,7 @@ import { useEffect, useState } from "react";
 //   return data;
 // };
 
-export default function page() {
+export default function Page() {
   // const blogs = await getBlogs();
   // const blogs = await client.fetch(BLOG_QUERIES);
 
