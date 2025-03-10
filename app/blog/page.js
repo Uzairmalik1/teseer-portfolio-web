@@ -1,10 +1,11 @@
 // @flow strict
-
+"use client"
 import { personalData } from "@/utils/data/personal-data";
 import BlogCard from "../components/homepage/blog/blog-card";
 import { blogs } from "@/utils/data/blogs"
 import { client } from "@/sanity/lib/client";
 import { BLOG_QUERIES } from "@/sanity/lib/queries";
+import { useEffect, useState } from "react";
 
 // async function getBlogs() {
 //   const res = await fetch(`https://dev.to/api/articles?username=${personalData.devUsername}`)
@@ -17,9 +18,24 @@ import { BLOG_QUERIES } from "@/sanity/lib/queries";
 //   return data;
 // };
 
-async function page() {
+export default function page() {
   // const blogs = await getBlogs();
-  const blogs = await client.fetch(BLOG_QUERIES);
+  // const blogs = await client.fetch(BLOG_QUERIES);
+
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const data = await client.fetch(BLOG_QUERIES);
+        setBlogs(data);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
 
   return (
     <div className="py-8">
@@ -45,4 +61,3 @@ async function page() {
   );
 };
 
-export default page;

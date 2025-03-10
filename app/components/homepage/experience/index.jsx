@@ -1,11 +1,21 @@
 // @flow strict
-
+"use client";
+import dynamic from "next/dynamic";
 import { experiences } from "@/utils/data/experience";
 import Image from "next/image";
 import { BsPersonWorkspace } from "react-icons/bs";
 import experience from '../../../assets/lottie/code.json';
-import AnimationLottie from "../../helper/animation-lottie";
+// import AnimationLottie from "../../helper/animation-lottie";
 import GlowCard from "../../helper/glow-card";
+
+// Use dynamic import to load AnimationLottie only on the client side
+const AnimationLottie = dynamic(() => import("../../helper/animation-lottie"), {
+  ssr: false, // Disable SSR
+});
+
+// const experience = dynamic(() => import("../../../assets/lottie/code.json"), {
+//   ssr: false, // Disable SSR
+// });
 
 function Experience() {
   return (

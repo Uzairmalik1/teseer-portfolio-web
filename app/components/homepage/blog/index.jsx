@@ -1,8 +1,27 @@
+"use client"
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
 import BlogCard from './blog-card';
+import { useEffect, useState } from 'react';
+import { client } from '@/sanity/lib/client';
+import { BLOG_QUERIES } from '@/sanity/lib/queries';
 
-function Blog({ blogs }) {
+function Blog() {
+  
+ const [blogs, setBlogs] = useState([]);
+ 
+   useEffect(() => {
+     const fetchBlogs = async () => {
+       try {
+         const data = await client.fetch(BLOG_QUERIES);
+         setBlogs(data);
+       } catch (error) {
+         console.error("Error fetching blogs:", error);
+       }
+     };
+ 
+     fetchBlogs();
+   }, []); 
 
   return (
     <div id='blogs' className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]">
