@@ -15,12 +15,12 @@ export default async function Home() {
   return (
     <div >
       <HeroSection /> 
-    <AboutSection />
-      <Experience />
-     <Skills />
-      <Projects />
-      <Education />
-      <Blog blogs={blogs} />
+   {/* <AboutSection />*/}
+     {/* <Experience />*/}
+   {/*  <Skills />*/}
+     {/* <Projects />*/}
+     {/* <Education />*/}
+     {/* <Blog blogs={blogs} />*/}
        {/* <ContactSection /> */}
     </div>
   )
