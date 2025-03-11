@@ -7,7 +7,7 @@ export const experiences = [
   },
   {
     id: 2,
-    title: "Sr. Ml Eningeer",
+    title: "Sr. Ml Engineer",
     company: "Traitorr AI Startup",
     duration: "(Jun 2021 - Jan 2022)"
   },
