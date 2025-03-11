@@ -1,26 +1,11 @@
 // @flow strict
 "use client"
-import { personalData } from "@/utils/data/personal-data";
-import BlogCard from "../components/homepage/blog/blog-card";
-import { blogs } from "@/utils/data/blogs"
+import BlogCard from "@/app/components/homepage/blog/blog-card";
 import { client } from "@/sanity/lib/client";
 import { BLOG_QUERIES } from "@/sanity/lib/queries";
 import { useEffect, useState } from "react";
 
-// async function getBlogs() {
-//   const res = await fetch(`https://dev.to/api/articles?username=${personalData.devUsername}`)
-
-//   if (!res.ok) {
-//     throw new Error('Failed to fetch data')
-//   }
-
-//   const data = await res.json();
-//   return data;
-// };
-
 export default function Page() {
-  // const blogs = await getBlogs();
-  // const blogs = await client.fetch(BLOG_QUERIES);
 
   const [blogs, setBlogs] = useState([]);
 
